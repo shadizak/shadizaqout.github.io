@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- head starts here-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Cat</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<!-- head ends here-->
+<!-- body starts here-->
+<body>
+    <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="formaddcat.html">Add Cat</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="form">
+        <h2>form add cat</h2>
+        <form>
+            <input type="text" placeholder="Name" id="name" required="required" />
+            <input type="text" placeholder="Breed" id="breed" required="required" />
+            <input type="text" placeholder="Age" id="age" required="required" />
+            <input type="text" placeholder="Color" id="color" required="required" />
+            <label for="myfile">add cat's img</label><br>
+            <input type="file" id="myfile" name="myfile" required="required"><br>
+            <textarea id="note" placeholder="Notes" onkeyup="adjust_textarea(this)" required="required"></textarea>
+            <input onclick="create()" type="button" value="Save Cat Information" />
+        </form>
+    </div>
+    <div class="tables">
+        <table id="rows" class="tables">
+            <tbody class="header-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Breed</th>
+                    <th>Age</th>
+                    <th>Color</th>
+                    <th>Note</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- body ends here-->
+    <!-- scripts starts here-->
+    <script type="text/javascript">
+        function adjust_textarea(h) {
+            h.style.height = "20px";
+            h.style.height = (h.scrollHeight) + "px";
+        }
+        function create() {
+            var v1 = document.getElementById('name').value;
+            var v2 = document.getElementById('breed').value;
+            var v3 = document.getElementById('age').value;
+            var v4 = document.getElementById('color').value;
+            var v5 = document.getElementById('note').value;
+            var rows = document.getElementById('rows');
+            if (v1 == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            if (v2 == "") {
+                alert("Breed must be filled out");
+                return false;
+            }
+            if (v3 == "") {
+                alert("Age must be filled out");
+                return false;
+            }if (v4 == "") {
+                alert("Color must be filled out");
+                return false;
+            }
+           
+            rows.innerHTML += "<tbody>  <tr> <td>" + v1 + "</td><td>" + v2 + "</td><td>" + v3 + "</td><td>" + v4 + "</td><td>" + v5 + "</td> </tr>  </tbody>";
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- scripts ends here-->
+</body>
+</html>
